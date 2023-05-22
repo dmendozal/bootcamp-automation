@@ -7,27 +7,25 @@ namespace Automation.Test.Tests.YopMail;
 [TestClass]
 public class EmailManagementTests : BaseTest
 {
-    private readonly YopMailPage _yopMailPage = CustomUnityContainer.GetContainer().Resolve<YopMailPage>();
+    private static YopMailPage _yopMailPage = CustomUnityContainer.GetContainer().Resolve<YopMailPage>();
 
     [TestMethod]
     public void VerifyMailDeliverySuccessfully()
     {
-        string email = "dmendozal@yopmail.com";
-        string subject = "Este es el subject de una prueba automatizada";
-        string bodyMessage = "Este es el body de una prueba automatizada";
+        string subject = $"subject {Guid.NewGuid()}";
+        string bodyMessage = $"body {Guid.NewGuid()}";
 
         _yopMailPage.Helpers.BrowserComponent.Navigate(_yopMailPage.BaseUrl);
-        _yopMailPage.InputEmailWebElement.SendKeys(email);
+        _yopMailPage.InputEmailWebElement.SendKeys(Constants.YopMailEmail);
         _yopMailPage.ButtonCheckEmailWebElement.Click();
 
         Assert.IsTrue(_yopMailPage.IsVisibleEmailTitleTextBox,
-                      $"¡ERROR! Email: {email} is not valid");
+                      $"¡ERROR! Email: {Constants.YopMailEmail} is not valid");
 
         _yopMailPage.ButtonNewEmailWebElement.Click();
         _yopMailPage.Helpers.BrowserComponent.SwitchToFrame(_yopMailPage.FrameNewEmailWebElement);
-        _yopMailPage.InputToEmailWebElement.SendKeys(email);
+        _yopMailPage.InputToEmailWebElement.SendKeys(Constants.YopMailEmail);
         _yopMailPage.InputSubjectEmailWebElement.SendKeys(subject);
-
         _yopMailPage.InputBodyEmailWebElement.SendKeys(bodyMessage);
 
         Assert.IsTrue(_yopMailPage.ButtonSendEmailWebElement.Enabled,

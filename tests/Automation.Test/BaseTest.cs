@@ -2,6 +2,7 @@
 using Automation.Framework.Core;
 using Automation.Framework.Enums;
 using Automation.Test.Pages.Todoist;
+using Automation.Test.Pages.YopMail;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Unity;
@@ -17,14 +18,8 @@ public class BaseTest
     {
         Driver.StartBrowser(BrowserType.Chrome, 30);
         CustomUnityContainer.GetContainer().RegisterType<TodoistPage>(new ContainerControlledLifetimeManager());
+        CustomUnityContainer.GetContainer().RegisterType<YopMailPage>(new ContainerControlledLifetimeManager());
         CustomUnityContainer.GetContainer().RegisterInstance<IWebDriver>(Driver.Browser);
-    }
-
-    private static ChromeOptions GetChromeOptions()
-    {
-        ChromeOptions chromeOptions = new();
-        chromeOptions.AddArgument("window-size=1920,1080");
-        return chromeOptions;
     }
 
     [TestInitialize]
@@ -33,7 +28,7 @@ public class BaseTest
     }
 
     [TestCleanup]
-    public void AfetrTest()
+    public void AfterTest()
     {
     }
 
