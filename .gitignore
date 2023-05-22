@@ -1,0 +1,5 @@
+.vs/
+tests/Automation.Framework/bin/
+tests/Automation.Framework/obj/
+tests/Automation.Test/bin/
+tests/Automation.Test/obj/
