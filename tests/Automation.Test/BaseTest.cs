@@ -4,7 +4,6 @@ using Automation.Framework.Enums;
 using Automation.Test.Pages.Todoist;
 using Automation.Test.Pages.YopMail;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using Unity;
 using Unity.Lifetime;
 

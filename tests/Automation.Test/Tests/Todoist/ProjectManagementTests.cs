@@ -7,7 +7,7 @@ namespace Automation.Test.Tests.Todoist;
 [TestClass]
 public class ProjectManagementTests : BaseTest
 {
-    private static TodoistPage _todoistPage = CustomUnityContainer.GetContainer().Resolve<TodoistPage>();
+    private readonly TodoistPage _todoistPage = CustomUnityContainer.GetContainer().Resolve<TodoistPage>();
 
     [TestMethod]
     public void VerifyCRUDProject()

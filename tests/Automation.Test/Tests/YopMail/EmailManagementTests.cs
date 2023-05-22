@@ -7,7 +7,7 @@ namespace Automation.Test.Tests.YopMail;
 [TestClass]
 public class EmailManagementTests : BaseTest
 {
-    private static YopMailPage _yopMailPage = CustomUnityContainer.GetContainer().Resolve<YopMailPage>();
+    private readonly YopMailPage _yopMailPage = CustomUnityContainer.GetContainer().Resolve<YopMailPage>();
 
     [TestMethod]
     public void VerifyMailDeliverySuccessfully()

@@ -18,11 +18,12 @@ public class BasePage
 
     public static IWebElement WaitTillElementDisplayed(string locator,
                                                        LocatorElement locatorElement,
-                                                       int TimeOutForFindingElement = 10)
+                                                       int TimeOutForFindingElement = 10,
+                                                       bool isWaitWebDriver = true)
     {
         var wait = new WebDriverWait(Driver.Browser, TimeSpan.FromSeconds(TimeOutForFindingElement));
 
-        return wait.GetWebElement(locator, locatorElement);
+        return isWaitWebDriver ? wait.GetWaitWebElement(locator, locatorElement) : Driver.Browser.GetWebElement(locator, locatorElement);
     }
 
     public static bool WaitIfElementDisplayed(string locator, LocatorElement locatorElement)
@@ -30,7 +31,7 @@ public class BasePage
         try
         {
             var webElement = WaitTillElementDisplayed(locator, locatorElement, 1);
-            
+
             return webElement != null;
         }
         catch (Exception)

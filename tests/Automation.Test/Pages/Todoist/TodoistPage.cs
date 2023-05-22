@@ -1,5 +1,4 @@
 ﻿using Automation.Framework.Base;
-using Automation.Framework.Core;
 using Automation.Framework.Enums;
 using OpenQA.Selenium;
 
@@ -27,8 +26,7 @@ internal class TodoistPage : BasePage
         => WaitIfElementDisplayed(":r2:", LocatorElement.ID);
 
     public IWebElement ButtonAddProjectWebElement
-        //=> WaitTillElementDisplayed("//button[@aria-label='Add project']", LocatorElement.Xpath);
-        => Driver.Browser.FindElement(By.XPath("//button[@aria-label='Add project']"));
+        => WaitTillElementDisplayed("//button[@aria-label='Add project']", LocatorElement.Xpath, isWaitWebDriver: false);
 
     public IWebElement InputProjectNameWebElement
         => WaitTillElementDisplayed("edit_project_modal_field_name", LocatorElement.ID);
@@ -46,8 +44,7 @@ internal class TodoistPage : BasePage
         => WaitIfElementDisplayed($"//ul[@id='projects_list']//li[last()]//span[text()='{projectName}']", LocatorElement.Xpath);
 
     public IWebElement ButtonShowOptionsWebElement
-        //=> WaitTillElementDisplayed("//ul[@id='projects_list']//li[last()]//button", LocatorElement.Xpath);
-        => Driver.Browser.FindElement(By.XPath("//ul[@id='projects_list']//li[last()]//button"));
+        => WaitTillElementDisplayed("//ul[@id='projects_list']//li[last()]//button", LocatorElement.Xpath, isWaitWebDriver: false);
 
     public IWebElement ButtonEditProjectWebElement
         => WaitTillElementDisplayed("//ul[@role='menu']//li[4]", LocatorElement.Xpath);
