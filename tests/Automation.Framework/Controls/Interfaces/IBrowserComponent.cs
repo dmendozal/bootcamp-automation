@@ -1,4 +1,4 @@
-﻿namespace Automation.Framework.Controls;
+﻿namespace Automation.Framework.Controls.Interfaces;
 
 internal interface IBrowserComponent
 {

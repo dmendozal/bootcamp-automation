@@ -1,5 +1,5 @@
 ﻿using Automation.Framework.Base;
-using Automation.Test.Pages.Todoist;
+using Automation.Test.Pages;
 using Unity;
 
 namespace Automation.Test.Tests.Todoist;
@@ -17,8 +17,8 @@ public class ProjectManagementTests : BaseTest
 
         _todoistPage.Helpers.BrowserComponent.Navigate(_todoistPage.BaseUrl);
         _todoistPage.ButtonEnterLogInWebElement.Click();
-        _todoistPage.InputEmailWebElement.SendKeys(Constants.TodoistEmail);
-        _todoistPage.InputPasswordWebElement.SendKeys(Constants.TodoistPassword);
+        _todoistPage.InputEmailWebElement.SendKeys(Constants.PersonalEmail);
+        _todoistPage.InputPasswordWebElement.SendKeys(Constants.PersonalPassword);
         _todoistPage.ButtonLogInWebElement.Click();
 
         Assert.IsTrue(_todoistPage.IsVisibleUserSessionButton,

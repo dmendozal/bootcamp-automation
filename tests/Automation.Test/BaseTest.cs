@@ -1,8 +1,7 @@
 ﻿using Automation.Framework.Base;
 using Automation.Framework.Core;
 using Automation.Framework.Enums;
-using Automation.Test.Pages.Todoist;
-using Automation.Test.Pages.YopMail;
+using Automation.Test.Pages;
 using OpenQA.Selenium;
 using Unity;
 using Unity.Lifetime;
@@ -18,6 +17,7 @@ public class BaseTest
         Driver.StartBrowser(BrowserType.Chrome, 30);
         CustomUnityContainer.GetContainer().RegisterType<TodoistPage>(new ContainerControlledLifetimeManager());
         CustomUnityContainer.GetContainer().RegisterType<YopMailPage>(new ContainerControlledLifetimeManager());
+        CustomUnityContainer.GetContainer().RegisterType<TodolyPage>(new ContainerControlledLifetimeManager());
         CustomUnityContainer.GetContainer().RegisterInstance<IWebDriver>(Driver.Browser);
     }
 

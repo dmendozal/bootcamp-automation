@@ -2,7 +2,7 @@
 using Automation.Framework.Enums;
 using OpenQA.Selenium;
 
-namespace Automation.Test.Pages.YopMail;
+namespace Automation.Test.Pages;
 
 internal class YopMailPage : BasePage
 {

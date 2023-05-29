@@ -2,7 +2,7 @@
 using Automation.Framework.Enums;
 using OpenQA.Selenium;
 
-namespace Automation.Test.Pages.Todoist;
+namespace Automation.Test.Pages;
 
 internal class TodoistPage : BasePage
 {

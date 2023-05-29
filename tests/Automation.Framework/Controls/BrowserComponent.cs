@@ -1,4 +1,5 @@
-﻿using Automation.Framework.Core;
+﻿using Automation.Framework.Controls.Interfaces;
+using Automation.Framework.Core;
 using OpenQA.Selenium;
 
 namespace Automation.Framework.Controls;

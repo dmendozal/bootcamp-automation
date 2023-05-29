@@ -1,5 +1,5 @@
 ﻿using Automation.Framework.Base;
-using Automation.Test.Pages.YopMail;
+using Automation.Test.Pages;
 using Unity;
 
 namespace Automation.Test.Tests.YopMail;
