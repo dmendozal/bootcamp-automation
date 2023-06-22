@@ -4,11 +4,11 @@ using OpenQA.Selenium;
 
 namespace Automation.Test.Pages;
 
-internal class TodoistPage : BasePage
+internal abstract class TodoistPage : BasePage
 {
-    public TodoistPage(IWebDriver driver) : base(driver) { }
+    protected TodoistPage(IWebDriver driver) : base(driver) { }
 
-    public string BaseUrl = "https://todoist.com/";
+    public const string BaseUrl = "https://todoist.com/";
 
     public IWebElement ButtonEnterLogInWebElement
         => WaitTillElementDisplayed("//a[@href='/auth/login']/parent::li", LocatorElement.Xpath);

@@ -4,19 +4,19 @@ namespace Automation.Framework.Base;
 
 public static class CustomUnityContainer
 {
-    private static IUnityContainer _unityContainer;
+    private static readonly IUnityContainer UnityContainer;
 
     static CustomUnityContainer()
     {
-        _unityContainer = new UnityContainer();
+        UnityContainer = new UnityContainer();
     }
 
     /// <summary>
-    /// Retrives unity containers registered 
+    /// Retrieves unity containers registered 
     /// </summary>
     /// <returns>A unity container</returns>
     public static IUnityContainer GetContainer()
     {
-        return _unityContainer;
+        return UnityContainer;
     }
 }

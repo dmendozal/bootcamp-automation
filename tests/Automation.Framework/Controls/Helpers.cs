@@ -2,6 +2,6 @@
 
 public class Helpers
 {
-    public BrowserComponent BrowserComponent = new();
-    public MouseActionComponent MouseActionComponent = new();
+    public readonly BrowserComponent BrowserComponent = new();
+    public readonly MouseActionComponent MouseActionComponent = new();
 }

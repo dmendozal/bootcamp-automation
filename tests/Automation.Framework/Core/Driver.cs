@@ -19,10 +19,7 @@ public static class Driver
 
             return _browser;
         }
-        set
-        {
-            _browser = value;
-        }
+        set => _browser = value;
     }
 
     public static WebDriverWait BrowserWait
@@ -34,10 +31,7 @@ public static class Driver
 
             return _browserWait;
         }
-        private set
-        {
-            _browserWait = value;
-        }
+        private set => _browserWait = value;
     }
 
     public static void StartBrowser(BrowserType browserType, int defaultTimeOut = 30, DriverOptions driverOptions = null)

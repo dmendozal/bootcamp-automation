@@ -9,30 +9,29 @@ namespace Automation.Framework.Base;
 
 public class BasePage
 {
-    public Helpers Helpers = new();
+    public readonly Helpers Helpers = new();
 
-    public BasePage(IWebDriver driver)
+    protected BasePage(IWebDriver driver)
     {
         Driver.Browser = driver;
     }
 
-    public static IWebElement WaitTillElementDisplayed(string locator,
+    protected static IWebElement WaitTillElementDisplayed(string locator,
                                                        LocatorElement locatorElement,
-                                                       int TimeOutForFindingElement = 10,
+                                                       int timeOutForFindingElement = 10,
                                                        bool isWaitWebDriver = true)
     {
-        var wait = new WebDriverWait(Driver.Browser, TimeSpan.FromSeconds(TimeOutForFindingElement));
+        var wait = new WebDriverWait(Driver.Browser, TimeSpan.FromSeconds(timeOutForFindingElement));
 
         return isWaitWebDriver ? wait.GetWaitWebElement(locator, locatorElement) : Driver.Browser.GetWebElement(locator, locatorElement);
     }
 
-    public static bool WaitIfElementDisplayed(string locator, LocatorElement locatorElement)
+    protected static bool WaitIfElementDisplayed(string locator, LocatorElement locatorElement)
     {
         try
         {
-            var webElement = WaitTillElementDisplayed(locator, locatorElement, 1);
-
-            return webElement != null;
+            WaitTillElementDisplayed(locator, locatorElement, 1);
+            return true;
         }
         catch (Exception)
         {

@@ -3,7 +3,7 @@ using Automation.Framework.Enums;
 
 namespace Automation.Framework.Common.Factory;
 
-public class WebDriverFactory
+public static class WebDriverFactory
 {
     public static ICustomWebDriver MakeBrowser(BrowserType browserType)
     {

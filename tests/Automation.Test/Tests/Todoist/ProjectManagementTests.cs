@@ -15,7 +15,7 @@ public class ProjectManagementTests : BaseTest
         string projectName = $"Mojix {Guid.NewGuid()}";
         string projectNameUpdated = $"Mojix Updated {Guid.NewGuid()}";
 
-        _todoistPage.Helpers.BrowserComponent.Navigate(_todoistPage.BaseUrl);
+        _todoistPage.Helpers.BrowserComponent.Navigate(TodoistPage.BaseUrl);
         _todoistPage.ButtonEnterLogInWebElement.Click();
         _todoistPage.InputEmailWebElement.SendKeys(Constants.PersonalEmail);
         _todoistPage.InputPasswordWebElement.SendKeys(Constants.PersonalPassword);

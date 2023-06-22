@@ -19,7 +19,7 @@ public class BrowserComponent : IBrowserComponent
     /// Switches webdriver to specified iframe component
     /// </summary>
     /// <param name="frameElement">IFrame WebElement</param>
-    public void SwitchToFrame(IWebElement frameElement)
+    public static void SwitchToFrame(IWebElement frameElement)
     {
         Driver.Browser.SwitchTo().Frame(frameElement);
     }
@@ -27,7 +27,7 @@ public class BrowserComponent : IBrowserComponent
     /// <summary>
     /// Switches webdriver to default content
     /// </summary>
-    public void SwitchToDefaultContent()
+    public static void SwitchToDefaultContent()
     {
         Driver.Browser.SwitchTo().DefaultContent();
     }

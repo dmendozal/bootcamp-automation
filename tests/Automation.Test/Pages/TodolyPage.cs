@@ -4,9 +4,9 @@ using OpenQA.Selenium;
 
 namespace Automation.Test.Pages;
 
-public class TodolyPage : BasePage
+public abstract class TodolyPage : BasePage
 {
-    public TodolyPage(IWebDriver driver) : base(driver) { }
+    protected TodolyPage(IWebDriver driver) : base(driver) { }
 
     public string BaseUrl = "https://todo.ly/";
 

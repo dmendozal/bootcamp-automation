@@ -1,4 +1,5 @@
 ﻿using Automation.Framework.Base;
+using Automation.Framework.Controls;
 using Automation.Test.Pages;
 using Unity;
 
@@ -15,7 +16,7 @@ public class EmailManagementTests : BaseTest
         string subject = $"subject {Guid.NewGuid()}";
         string bodyMessage = $"body {Guid.NewGuid()}";
 
-        _yopMailPage.Helpers.BrowserComponent.Navigate(_yopMailPage.BaseUrl);
+        _yopMailPage.Helpers.BrowserComponent.Navigate(YopMailPage.BaseUrl);
         _yopMailPage.InputEmailWebElement.SendKeys(Constants.YopMailEmail);
         _yopMailPage.ButtonCheckEmailWebElement.Click();
 
@@ -23,7 +24,7 @@ public class EmailManagementTests : BaseTest
                       $"¡ERROR! Email: {Constants.YopMailEmail} is not valid");
 
         _yopMailPage.ButtonNewEmailWebElement.Click();
-        _yopMailPage.Helpers.BrowserComponent.SwitchToFrame(_yopMailPage.FrameNewEmailWebElement);
+        BrowserComponent.SwitchToFrame(_yopMailPage.FrameNewEmailWebElement);
         _yopMailPage.InputToEmailWebElement.SendKeys(Constants.YopMailEmail);
         _yopMailPage.InputSubjectEmailWebElement.SendKeys(subject);
         _yopMailPage.InputBodyEmailWebElement.SendKeys(bodyMessage);
@@ -32,9 +33,9 @@ public class EmailManagementTests : BaseTest
                       $"¡ERROR! Send email button is not enable.");
 
         _yopMailPage.ButtonSendEmailWebElement.Click();
-        _yopMailPage.Helpers.BrowserComponent.SwitchToDefaultContent();
+        BrowserComponent.SwitchToDefaultContent();
         _yopMailPage.ButtonRefreshInboxWebElement.Click();
-        _yopMailPage.Helpers.BrowserComponent.SwitchToFrame(_yopMailPage.FrameInboxWebElement);
+        BrowserComponent.SwitchToFrame(_yopMailPage.FrameInboxWebElement);
 
         Assert.IsTrue(_yopMailPage.IsVisibleEmailInInboxTextBox(subject),
                       $"¡ERROR! Message email was not found");

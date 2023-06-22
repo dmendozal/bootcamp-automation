@@ -4,11 +4,11 @@ using OpenQA.Selenium;
 
 namespace Automation.Test.Pages;
 
-internal class YopMailPage : BasePage
+internal abstract class YopMailPage : BasePage
 {
-    public YopMailPage(IWebDriver driver) : base(driver) { }
+    protected YopMailPage(IWebDriver driver) : base(driver) { }
 
-    public string BaseUrl = "https://yopmail.com/";
+    public const string BaseUrl = "https://yopmail.com/";
 
     public IWebElement InputEmailWebElement
         => WaitTillElementDisplayed("login", LocatorElement.ID);
